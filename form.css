@@ -1,0 +1,174 @@
+* {box-sizing: border-box;}
+
+.welcome {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.welcome img{
+  float: left;
+  height: 45px;
+  width: 180px;
+}
+
+.welcome a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.welcome a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.welcome a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.welcome .chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 45px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #2196F3;
+  float: right;
+}
+
+.welcome .chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+}
+
+.welcome .logout-container {
+  float: right;
+}
+
+.welcome .logout-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #e9e9e9;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+.welcome .logout-container img {
+  height: 20px;
+  width: 20px;
+}
+
+.welcome .logout-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .welcome .logout-container {
+    float: none;
+  }
+  .welcome a, .welcome input[type=text], .welcome .logout-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .welcome input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #003366;
+  color: white;
+  text-align: center;
+}
+
+table {
+	font-family: Courier New, Courier, arial, sans-serif;
+	border-collapse: collapse;
+	background-color:#ffffff;
+	width: 20%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	text-align: center;
+}
+
+.alert{
+	background-color: red;
+}
+
+.ok{
+	background-color: limegreen;
+}
+
+.center button{
+	margin: 0 auto;
+    display: block;
+}
+
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+.back input[type=image]{
+	float:left;
+	display:block;
+	margin: auto; 
+	height: 70px;
+	width: 70px;
+}
+.images{
+	margin: auto;
+	height: 50px;
+	width: 50px;
+}
+
+select{
+	width: 165px;
+}
+
+
+.form label{
+	float: left;
+	width: 150px;
+}
+
+
+body {
+	background: #00ccff;
+	background: -webkit-linear-gradient(right, #00ccff, #003399);
+	background: -moz-linear-gradient(right, #00ccff, #003399);
+	background: -o-linear-gradient(right, #00ccff, #003399);
+	background: linear-gradient(to left, #00ccff, #003399);
+	font-family: Courier New, Courier, Arial, sans-serif;
+	width: 100%;
+}

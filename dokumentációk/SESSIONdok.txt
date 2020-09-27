@@ -1,0 +1,10 @@
+$_SESSION['user_name'] -> bejelentkezett felhasználó felhasználóneve -> $user_name
+$_SESSION['permission'] -> bejelentkezett felhasználó jogosultságának neve -> $user_permission
+$_SESSION['permission_id'] -> bejelentkezett felhasználó felhasználóneve -> $user_permission_id
+$_SESSION['location_id'] -> bejelentkezett felhasználó hely azonosítója -> $user_location_id
+$_SESSION['location'] -> bejelentkezett felhasználó fordulójának városa -> $user_location
+$_SESSION['level'] -> bejelentkezett felhasználó fordulójának szintje -> $user_level
+$_SESSION['tourn_id'] -> bejelentkezett felhasználó fordulójának azonosítója -> $user_tourn
+$_SESSION['category'] -> bejelentkezett zsűri felhasználó zs. kat. neve -> $user_category
+$_SESSION['category_id'] -> bejelentkezett zsűri felhasználó zs. kat. azonosítója -> $user_category_id
+$_SESSION['login_time'] -> bejelentkezés óra perc másodperc-> $time
