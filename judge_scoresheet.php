@@ -167,7 +167,7 @@ $schedule='files/Schedule_'.$user_location.'_'.$user_level.'_'.$user_tourn.'.pdf
 									<option value="2">DEVELOPING</option>
 									<option value="1">BEGINNING</option>
 								</select>
-								<?php echo $lang['scored'].': '$row_sub['ERTEK'];?>
+								<?php echo $lang['scored'].': '.$row_sub['ERTEK'];?>
 							<?php endif; ?>
 							</td>
 							<td width=10%>
