@@ -119,7 +119,7 @@ $lang['team_name'] = 'Csapatnév';
 $lang['poss_teammem'] = 'Várható csapat létszám';
 $lang['poss_coachnum'] = 'Várható coach létszám';
 
-#modify_res_madm_x.php
+#modify_res_madm_x.php, judge_scoring.php
 $lang['team_id'] = 'Csapat ID';
 $lang['not_scoring'] = 'Nincs pontozva!';
 $lang['scoring'] = 'Értékelés';
@@ -169,4 +169,14 @@ $lang['is_gen'] = 'Már generált!';
 $lang['ref_title'] = 'Bíró';
 $lang['ref_scoring'] = 'Pontozás';
 $lang['ref_scored'] = 'Pontozva';
+
+#welcomejudge.php
+$lang['jud_title'] = 'Zsűri';
+$lang['jud_team_i'] = 'Csapat információk';
+
+#judge_scoresheet.php
+$lang['comm_to_jc'] = 'Zsűri komment(Értékeléshez)';
+$lang['comm_to_team'] = 'Zsűri komment(Csapatnak)';
+$lang['not_poss_score'] = 'Nem rögzíthető';
+$lang['judge_team'] = 'zsűricsapat';
 ?>
