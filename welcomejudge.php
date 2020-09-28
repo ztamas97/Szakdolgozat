@@ -1,27 +1,29 @@
 <?php
 include('session.php');
+include('functions.php');
+require(languageselect($language));
    
 if($user_permission_id!=5){
-	header("location: logout.php");
+	header('location: logout.php');
 }
 
-$schedule="files/Schedule_".$user_location."_".$user_level."_".$user_tourn.".pdf";
+$schedule='files/Schedule_'.$user_location.'_'.$user_level.'_'.$user_tourn.'.pdf';
 ?>
 <html>
    
    <head>
-      <title>Zsűri</title>
-	  <link rel="stylesheet" type="text/css" href="welcome.css">
+      <title><?php echo $lang['jud_title']; ?></title>
+	  <link rel="stylesheet" type="text/css" href="stylesheet/welcome.css">
    </head>
    
    <body>
 		<div class="welcome">
 			<img src="images/fll_main_logo.png" alt="FLL">
-			<a class="active" href="welcomejudge.php">Kezdőlap</a>
-			<a href="sum_scores.php">Eredmények</a>
-			<a href=<?php echo $schedule; ?> target="_blank">Menetrend</a>
-			<a href="judge_scoring.php">Pontozás</a>
-			<a href="teaminfo_jud_ref.php">Csapat információk</a>
+			<a class="active" href="welcomejudge.php"><?php echo $lang['home_p']; ?></a>
+			<a href="sum_scores.php"><?php echo $lang['ad_result']; ?></a>
+			<a href=<?php echo $schedule; ?> target="_blank"><?php echo $lang['schedule']; ?></a>
+			<a href="judge_scoring.php"><?php echo $lang['ref_scoring']; ?></a>
+			<a href="teaminfo_jud_ref.php"><?php echo $lang['jud_team_i']; ?></a>
 			<div class="logout-container">
 				<form action="logout.php">
 					<button type="submit"><img src="images/logout.svg" alt="logout"></button>
@@ -36,23 +38,23 @@ $schedule="files/Schedule_".$user_location."_".$user_level."_".$user_tourn.".pdf
 		<div class="info">
 		<table>
 			<tr>
-				<th>Jogosultság:</th>
+				<th><?php echo $lang['perm']; ?>:</th>
 				<td><?php echo $user_permission; ?></td>
 			</tr>
 			<tr>
-				<th>Helyszín:</th>
+				<th><?php echo $lang['loc']; ?>:</th>
 				<td><?php echo $user_location; ?></td>
 			</tr>
 			<tr>
-				<th>Szint:</th>
+				<th><?php echo $lang['level']; ?>:</th>
 				<td><?php echo $user_level; ?></td>
 			</tr>
 			<tr>
-				<th>Kategória:</th>
+				<th><?php echo $lang['cat']; ?>:</th>
 				<td><?php echo $user_category; ?></td>
 			</tr>
 			<tr>
-				<th>Bejelentkezés:</th>
+				<th><?php echo $lang['login_t']; ?>:</th>
 				<td><?php echo $time; ?> <?php echo $day; ?></td>
 			</tr>
 		</table>
@@ -60,16 +62,16 @@ $schedule="files/Schedule_".$user_location."_".$user_level."_".$user_tourn.".pdf
 		<div class="documents">
 		<table>
 			<tr>
-				<th>Szabályok:</th>
-				<td><a href="rg_hu.pdf">Megnyitás</a></td>
+				<th><?php echo $lang['rules']; ?>:</th>
+				<td><a href="system_files/rg_hu.pdf"><?php echo $lang['open']; ?></a></td>
 			</tr>
 			<tr>
-				<th>FLL értékek:</th>
-				<td><a href="rg_hu.pdf">Megnyitás</a></td>
+				<th><?php echo $lang['core_v']; ?>:</th>
+				<td><a href="images/core_v.jpg"><?php echo $lang['open']; ?></a></td>
 			</tr>
 			<tr>
-				<th>Építési útmutató:</th>
-				<td><a href="rg_hu.pdf">Megnyitás</a></td>
+				<th><?php echo $lang['building_inst']; ?>:</th>
+				<td><a href="system_files/rg_hu.pdf"><?php echo $lang['open']; ?></a></td>
 			</tr>
 		</table>
 		</div>
