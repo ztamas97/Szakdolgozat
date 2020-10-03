@@ -11,8 +11,8 @@ $schedule='files/Schedule_'.$user_location.'_'.$user_level.'_'.$user_tourn.'.pdf
 ?>
 <html>
 	<head>
-		  <title>Pontozás</title>
-		  <link rel="stylesheet" type="text/css" href="form.css">
+		  <title><?php echo $lang['ref_scoring']; ?></title>
+		  <link rel="stylesheet" type="text/css" href="stylesheet/form.css">
 	</head>
    
 	<body>
