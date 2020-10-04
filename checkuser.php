@@ -12,6 +12,7 @@ $resultp = $db->query($sqlp);
 
 $sqll = "SELECT `helyszinek`.`HAZ`, `helyszinek`.`VAROS` FROM `helyszinek`;";
 $resultl = $db->query($sqll);
+
 ?>
 <html>
    <head>
@@ -123,32 +124,30 @@ $resultl = $db->query($sqll);
 						<form action="usera.php" method="post">
 						<tr>
 							<td>
-								<?php echo $row["Azonosito"]; ?>
-								<input type="hidden" name="uid" value="<?php echo $row["Azonosito"]; ?>" />
+								<?php echo $row['Azonosito']; ?>
+								<input type="hidden" name="uid" value="<?php echo $row['Azonosito']; ?>" />
 							</td>
 							<td>
-								<?php echo $row["FHNEV"]; ?>
+								<div contenteditable="true" onBlur="updateValue(this,'FHNEV','<?php echo $row['Azonosito']; ?>')"><?php echo $row['FHNEV']; ?></div>
 							</td>
 							<td>
-								<?php echo $row["JNEV"]; ?>
+								<?php echo $row['JNEV']; ?>
 							</td>
 							<td>
-								<?php if($row["VAROS"]){
-									echo $row["VAROS"]."<br>";
+								<?php if($row['VAROS']){
+									echo $row['VAROS'].'<br>';
 								}?>
-								<?php if($row["SZINEV"]){
-									echo $row["SZINEV"];
+								<?php if($row['SZINEV']){
+									echo $row['SZINEV'];
 								}?>
-								<?php if($row["EMAIL"]){
-									echo $row["EMAIL"];
-								}?>
+								<div contenteditable="true" onBlur="updateValue(this,'EMAIL','<?php echo $row['Azonosito']; ?>')"><?php echo $row['EMAIL']; ?></div>
 							</td>
 							<td width=20%>
-								<?php if($row["AKTIV"]==1){
+								<?php if($row['AKTIV']==1){
 									echo "<input type='image' id='send' src='images/active.svg' width=15% alt='active icon'>";
 									echo"<input type='hidden' name='avalue' value=".$row["AKTIV"]."/>";
 								}?>
-								<?php if($row["AKTIV"]==0){
+								<?php if($row['AKTIV']==0){
 									echo "<input type='image' id='send' src='images/inactive.svg' width=15% alt='inactive icon'>";
 									echo"<input type='hidden' name='avalue' value=".$row["AKTIV"]."/>";
 								}?>
@@ -166,5 +165,22 @@ $resultl = $db->query($sqll);
 		<div class="footer">
 			<p>Zelles Tamás SZE 2020</p>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			function updateValue(element, column, id)
+			{
+				var value = element.innerText
+					
+				$.ajax({
+					url:'update_user_d.php',
+					type: 'post',
+					data:{
+						value: value,
+						column: column,
+						id: id
+					}
+				})
+			}
+		</script>
 	</body>
 </html>
