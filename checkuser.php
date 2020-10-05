@@ -128,7 +128,7 @@ $resultl = $db->query($sqll);
 								<input type="hidden" name="uid" value="<?php echo $row['Azonosito']; ?>" />
 							</td>
 							<td>
-								<div contenteditable="true" onBlur="updateValue(this,'FHNEV','<?php echo $row['Azonosito']; ?>')"><?php echo $row['FHNEV']; ?></div>
+								<div contenteditable="true" onBlur="updateValue(this,'FHNEV', 'felhasznalok', 'Azonosito','<?php echo $row['Azonosito']; ?>')"><?php echo $row['FHNEV']; ?></div>
 							</td>
 							<td>
 								<?php echo $row['JNEV']; ?>
@@ -140,7 +140,7 @@ $resultl = $db->query($sqll);
 								<?php if($row['SZINEV']){
 									echo $row['SZINEV'];
 								}?>
-								<div contenteditable="true" onBlur="updateValue(this,'EMAIL','<?php echo $row['Azonosito']; ?>')"><?php echo $row['EMAIL']; ?></div>
+								<div contenteditable="true" onBlur="updateValue(this,'EMAIL', 'felhasznalok', 'Azonosito', '<?php echo $row['Azonosito']; ?>')"><?php echo $row['EMAIL']; ?></div>
 							</td>
 							<td width=20%>
 								<?php if($row['AKTIV']==1){
@@ -167,17 +167,23 @@ $resultl = $db->query($sqll);
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
-			function updateValue(element, column, id)
+			function updateValue(element, column, table_n, id_name, id)
 			{
 				var value = element.innerText
 					
 				$.ajax({
-					url:'update_user_d.php',
+					url:'update_ajax.php',
 					type: 'post',
 					data:{
 						value: value,
 						column: column,
+						table_n: table_n,
+						id_name: id_name,
 						id: id
+					},
+					success:function(php_result)
+					{
+						console.log(php_result);
 					}
 				})
 			}

@@ -48,13 +48,15 @@ $result=$db->query($sql);
 				<?php while($row=$result->fetch_assoc()){?>
 					<tr>
 						<td>
-							<?php echo $row["HAZ"]; ?>
+							<?php echo $row['HAZ']; ?>
 						</td>
 						<td>
-							<?php echo $row["IRSZ"]."   ".$row["VAROS"]; ?>
+							<div contenteditable="true" onBlur="updateValue(this,'IRSZ', 'helyszinek', 'HAZ','<?php echo $row['HAZ']; ?>')"><?php echo $row['IRSZ']; ?></div>
+							<div contenteditable="true" onBlur="updateValue(this,'VAROS', 'helyszinek', 'HAZ','<?php echo $row['HAZ']; ?>')"><?php echo $row['VAROS']; ?></div>
 						</td>
 						<td>
-							<?php echo $row["UTCA"]." ".$row["HSZ"]."."; ?>
+							<div contenteditable="true" onBlur="updateValue(this,'UTCA', 'helyszinek', 'HAZ','<?php echo $row['HAZ']; ?>')"><?php echo $row['UTCA']; ?></div>
+							<div contenteditable="true" onBlur="updateValue(this,'HSZ', 'helyszinek', 'HAZ','<?php echo $row['HAZ']; ?>')"><?php echo $row['HSZ']; ?></div>							
 						</td>
 					</tr>
 				<?php }?>
@@ -111,6 +113,29 @@ $result=$db->query($sql);
 		<div class="footer">
 			<p>Zelles Tamás SZE 2020</p>
 		</div>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		function updateValue(element, column, table_n, id_name, id)
+			{
+				var value = element.innerText
+					
+				$.ajax({
+					url:'update_ajax.php',
+					type: 'post',
+					data:{
+						value: value,
+						column: column,
+						table_n: table_n,
+						id_name: id_name,
+						id: id
+					},
+					success:function(php_result)
+					{
+						console.log(php_result);
+					}
+				})
+			}
+		</script>
    </body>
    
 </html>

@@ -1,5 +1,5 @@
 <?php
-include("session.php");
+include('session.php');
 include('functions.php');
 require(languageselect($language));
 	
@@ -162,7 +162,7 @@ $resultlev = $db->query($sqllev);
 								}
 								else{
 									if($language=='hu'){
-										echo "Inaktív";
+										echo 'Inaktív';
 									}
 									else if($language=='eng'){
 										echo 'Inactive';
@@ -191,7 +191,7 @@ $resultlev = $db->query($sqllev);
 								<?php echo $lang['datetime'];?>
 							</th>
 							<td>
-								<?php echo $row["DATE"]; ?>
+								<?php echo $row['DATE']; ?>
 							</td>
 						</tr>
 						<tr>
@@ -199,7 +199,8 @@ $resultlev = $db->query($sqllev);
 								<?php echo $lang['max_team'];?>
 							</th>
 							<td>
-								<?php echo $row["RESZTVCSMAX"]; 
+								<div contenteditable="true" onBlur="updateValue(this,'RESZTVCSMAX', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['RESZTVCSMAX']; ?></div>
+								<?php
 								$subsql="SELECT `csapat-fordulo`.`FORDULOID`, `csapat-fordulo`.`CSAPATID`
 								FROM `csapat-fordulo`
 								WHERE `csapat-fordulo`.`FORDULOID` = '$seged_faz'";
@@ -219,7 +220,7 @@ $resultlev = $db->query($sqllev);
 								<?php echo $lang['level'];?>
 							</th>
 							<td>
-								<?php echo $row["SZINEV"]; ?>
+								<?php echo $row['SZINEV']; ?>
 							</td>
 						</tr>
 						<tr>
@@ -227,7 +228,7 @@ $resultlev = $db->query($sqllev);
 								<?php echo $lang['contact'];?>
 							</th>
 							<td>
-								<?php echo $row["KONTAKT"]; ?>
+								<div contenteditable="true" onBlur="updateValue(this,'KONTAKT', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['KONTAKT']; ?></div>
 							</td>
 						</tr>
 						<tr>
@@ -235,7 +236,7 @@ $resultlev = $db->query($sqllev);
 								<?php echo $lang['phone_numb'];?>
 							</th>
 							<td>
-								<?php echo $row["TEL"]; ?>
+								<div contenteditable="true" onBlur="updateValue(this,'TEL', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['TEL']; ?></div>
 							</td>
 						</tr>
 						<tr>
@@ -243,7 +244,7 @@ $resultlev = $db->query($sqllev);
 								E-mail
 							</th>
 							<td>
-								<?php echo $row["EMAIL"]; ?>
+								<div contenteditable="true" onBlur="updateValue(this,'EMAIL', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['EMAIL']; ?></div>
 							</td>
 						</tr>
 						<tr>
@@ -253,7 +254,7 @@ $resultlev = $db->query($sqllev);
 							<td>
 								<?php if(isset($_POST['radio'])){
 									$yes=$_POST['radio'];
-									if($yes=="Igen" AND $sub_result->num_rows>0){
+									if($yes=='Igen' AND $sub_result->num_rows>0){
 										$subsql2="SELECT `csapat-fordulo`.`FORDULOID`, `csapatok`.`CSNEV` 
 										FROM `csapat-fordulo` 
 										LEFT JOIN `csapatok` ON `csapat-fordulo`.`CSAPATID` = `csapatok`.`CSAZ` 
@@ -261,7 +262,7 @@ $resultlev = $db->query($sqllev);
 										$sub_result2 = $db->query($subsql2);
 										if ($sub_result2->num_rows > 0) {
 											while($rows = $sub_result2->fetch_assoc()) {
-												echo $rows["CSNEV"]."<br>";
+												echo $rows['CSNEV'].'<br>';
 											}
 										}
 									}
@@ -279,5 +280,28 @@ $resultlev = $db->query($sqllev);
 		<div class="footer">
 			<p>Zelles Tamás SZE 2020</p>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+		function updateValue(element, column, table_n, id_name, id)
+			{
+				var value = element.innerText
+					
+				$.ajax({
+					url:'update_ajax.php',
+					type: 'post',
+					data:{
+						value: value,
+						column: column,
+						table_n: table_n,
+						id_name: id_name,
+						id: id
+					},
+					success:function(php_result)
+					{
+						console.log(php_result);
+					}
+				})
+			}
+		</script>
 	</body>
 </html>

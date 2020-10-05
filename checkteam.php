@@ -66,13 +66,46 @@ $results = $db->query($sqls);
 				
 				<?php while($row = $result->fetch_assoc()) {
 						if($seson_r==''){
-							echo $lang['id'].': '. $row['CSAZ'].'<br>';
-							echo $lang['team_name'].': '. $row['CSNEV'].'<br>';
-							echo $lang['poss_teammem'].': '. $row['VCSLSZAM'].'<br>';
-							echo 'Coach: ' . $row['COACH'].'<br>';
-							echo $lang['poss_coachnum'].': '. $row['VCOACHSZAM'].'<br>';
-							echo 'Email: ' . $row['EMAIL'].'<br>';
-							echo '<hr>'.'<br>';
+							echo '<table>';
+								echo '<tr>';
+									echo '<th>';
+										echo $lang['id'];
+									echo '</th>';
+									echo '<td>';
+										echo $row['CSAZ'];
+									echo '</td>';
+									echo '<th>';
+										echo $lang['team_name'];
+									echo '</th>';
+									echo '<td>';
+										echo $row['CSNEV'];
+									echo '</td>';
+									echo '<th>';
+										echo $lang['poss_teammem'];
+									echo '</th>';
+									echo '<td>';
+										echo $row['VCSLSZAM'];
+									echo '</td>';
+									echo '<th>';
+										echo 'Coach';
+									echo '</th>';
+									echo '<td>';
+										echo $row['COACH'];
+									echo '</td>';									
+									echo '<th>';
+										echo $lang['poss_coachnum'];
+									echo '</th>';
+									echo '<td>';
+										echo $row['VCOACHSZAM'];
+									echo '</td>';
+									echo '<th>';
+										echo 'E-mail';
+									echo '</th>';
+									echo '<td>';
+										echo $row['EMAIL'];
+									echo '</td>';
+								echo '</tr>';
+							echo '</table>';
 						}
 						else if($row['SZID']==$seson_r){
 							echo $lang['id'].': '. $row['CSAZ'].'<br>';
