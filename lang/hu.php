@@ -31,7 +31,6 @@ $lang['h_ref'] = 'Fő Bíró';
 $lang['jud'] = 'Zsűri';
 $lang['coach'] = 'Coach';
 $lang['error'] = 'Hiba';
-$lang['open'] = 'Megnyitás';
 
 #hiba üzenetek
 $lang['login_error'] = 'A bejelentkezéshez adja meg felhasználónevét és jelszavát!';
@@ -39,7 +38,7 @@ $lang['inactice_user'] = 'Inaktív felhasználói fiók!';
 $lang['new_pass'] = 'Új jelszavát elküldtük a következő e-mail címre: ';
 $lang['new_pass_err'] = 'A jelszó helyreállítás nem sikeres!';
 $lang['undefined_user'] = 'Ismeretlen felhasználónév!'; 
-$lang['res_send_attention'] = 'Figyelem! Ha tovább halad a küldési folyamatban nincs lehetőség eredmény mődosításra!';
+$lang['res_send_attention'] = 'Figyelem! Ha tovább halad a küldési folyamatban nincs lehetőség eredmény módosításra!';
 
 #index.php
 $lang['index_title'] = 'Bejelentkezés';
@@ -179,4 +178,9 @@ $lang['comm_to_jc'] = 'Zsűri komment(Értékeléshez)';
 $lang['comm_to_team'] = 'Zsűri komment(Csapatnak)';
 $lang['not_poss_score'] = 'Nem rögzíthető';
 $lang['judge_team'] = 'zsűricsapat';
+
+#teaminfo_jud_ref.php
+$lang['option_to_src'] = 'Opció';
+$lang['all_team'] = 'Minden csapat';
+$lang['scored_teams'] = 'Pontozott csapatok';
 ?>
