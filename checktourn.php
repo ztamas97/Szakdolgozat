@@ -153,20 +153,20 @@ $resultlev = $db->query($sqllev);
 							<td>
 								<?php 
 								if($row['AKTIV']==1){
-									if($language=='hu'){
-										echo 'Aktív';
-									}
-									else if($language=='eng'){
+									if($language=='eng'){
 										echo 'Active';
+									}
+									else{
+										echo 'Aktív';
 									}
 								}
 								else{
-									if($language=='hu'){
-										echo 'Inaktív';
-									}
-									else if($language=='eng'){
+									if($language=='eng'){
 										echo 'Inactive';
 									}
+									else{
+										echo 'Inaktív';
+									}									
 								}?>
 							</td>
 						</tr>
