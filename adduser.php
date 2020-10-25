@@ -161,6 +161,8 @@ $resultlev = $db->query($sqllev);
 		});
 		});
 		</script>
+		<br>
+		<br>
 		<div class="footer">
 			<p>Zelles Tamás SZE 2020</p>
 		</div>

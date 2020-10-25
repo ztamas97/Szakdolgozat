@@ -49,7 +49,7 @@ if($user_permission_id!=4){
 					<table style="width:70%">
 						<tr>
 							<th>
-								<?php echo $lang['id']; ?>
+								<?php echo $lang['id']; ?>:
 							</th>
 							<td>
 								<?php echo $row['CSAZ'];?>
@@ -57,7 +57,7 @@ if($user_permission_id!=4){
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['team_name']; ?>
+								<?php echo $lang['team_name']; ?>:
 							</th>
 							<td>
 								<?php echo $row['CSNEV'];?>
@@ -65,7 +65,7 @@ if($user_permission_id!=4){
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['poss_teammem']; ?>
+								<?php echo $lang['poss_teammem']; ?>:
 							</th>
 							<td>
 								<?php echo $row['VCSLSZAM']; ?>
@@ -73,7 +73,7 @@ if($user_permission_id!=4){
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['poss_coachnum']; ?>
+								<?php echo $lang['poss_coachnum']; ?>:
 							</th>
 							<td>
 								<?php echo $row['VCOACHSZAM']; ?>
@@ -81,10 +81,18 @@ if($user_permission_id!=4){
 						</tr>
 						<tr>
 							<th>
-								E-mail
+								E-mail:
 							</th>
 							<td>
 								<?php echo $row['EMAIL']; ?>
+							</td>
+						</tr>
+						<tr>
+							<th>
+								<?php echo $lang['check_res_code']; ?>:
+							</th>
+							<td>
+								<?php echo $user_tourn.'-'.$row['CSAZ'].'-'.$row['VCSLSZAM'].'-'.$row['EMAIL']; ?>
 							</td>
 						</tr>
 						<?php if($row['MEGJELENTE']==1):?>
@@ -112,6 +120,8 @@ if($user_permission_id!=4){
 									<label for="teammem"><?php echo $lang['teammem']; ?>:</label>
 									<input type="number" name="teammem" id="teammem" min=2 max=10>
 									<input type='hidden' name='teamid' value="<?php echo $row['CSAZ']; ?>">
+									<input type='hidden' name='email' value="<?php echo $row['EMAIL']; ?>">
+									<input type='hidden' name='poss_teammem' value="<?php echo $row['VCSLSZAM']; ?>">
 									</p>
 								</td>
 							</tr>

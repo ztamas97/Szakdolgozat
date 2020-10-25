@@ -147,6 +147,7 @@ $lang['to_team'] = 'Csapatnak';
 $lang['is_here'] = 'Megjelent';
 $lang['teammem'] = 'Csapat létszám';
 $lang['coach_num'] = 'Coach szám';
+$lang['check_res_code'] = 'Eredmény elérési kód';
 $lang['wait_to_reg'] = 'Regisztrációra vár';
 
 #robot_game_lot_x.php

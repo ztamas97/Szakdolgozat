@@ -19,7 +19,7 @@ if(mysqli_query($db, $sql)){
 	if($language == 'eng'){
 		$main='
 				<h1>Dear '.$coach.'!</h1>
-				<p>With your e-mail('.$email.') have been registered in the FLL scoring and administration system as a'.$teamname.' (csapat) Coach.</p><br>
+				<p>With your e-mail('.$email.') have been registered in the FLL scoring and administration system as a'.$teamname.' (team) Coach.</p><br>
 				<table style:"width:50% text-align: left">
 					<tr style:"width:50%">
 						<th>

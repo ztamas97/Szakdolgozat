@@ -42,7 +42,7 @@ $resultl = $db->query($sqll);
 			<table>
 				<tr>
 					<td>
-						<label for="perm"><?php echo $lang['perm']; ?> :</label>
+						<label for="perm"><?php echo $lang['perm']; ?>:</label>
 						<select name="subject_perm">
 						<option></option>
 						<?php while($subjectDataP = $resultp->fetch_assoc()){ ?>

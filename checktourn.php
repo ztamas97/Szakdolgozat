@@ -139,7 +139,7 @@ $resultlev = $db->query($sqllev);
 					<table style="width:70%">
 						<tr>
 							<th>
-								<?php echo $lang['id']; ?>
+								<?php echo $lang['id']; ?>:
 							</th>
 							<td>
 								<?php echo $row['FAZ']; 
@@ -148,7 +148,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['status']; ?>
+								<?php echo $lang['status']; ?>:
 							</th>
 							<td>
 								<?php 
@@ -156,7 +156,7 @@ $resultlev = $db->query($sqllev);
 									if($language=='eng'){
 										echo 'Active';
 									}
-									else{
+									else {
 										echo 'Aktív';
 									}
 								}
@@ -164,15 +164,15 @@ $resultlev = $db->query($sqllev);
 									if($language=='eng'){
 										echo 'Inactive';
 									}
-									else{
+									else {
 										echo 'Inaktív';
-									}									
+									}
 								}?>
 							</td>
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['loc'];?>
+								<?php echo $lang['loc'];?>:
 							</th>
 							<td>
 								<?php echo $row['VAROS'];?>
@@ -180,7 +180,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['season'];?>
+								<?php echo $lang['season'];?>:
 							</th>
 							<td>
 								<?php echo $row['SZNEV']; ?>
@@ -188,7 +188,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['datetime'];?>
+								<?php echo $lang['datetime'];?>:
 							</th>
 							<td>
 								<?php echo $row['DATE']; ?>
@@ -196,7 +196,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['max_team'];?>
+								<?php echo $lang['max_team'];?>:
 							</th>
 							<td>
 								<div contenteditable="true" onBlur="updateValue(this,'RESZTVCSMAX', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['RESZTVCSMAX']; ?></div>
@@ -209,7 +209,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['act_team'];?>
+								<?php echo $lang['act_team'];?>:
 							</th>
 							<td>
 								<?php echo $sub_result->num_rows; ?>
@@ -217,7 +217,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['level'];?>
+								<?php echo $lang['level'];?>:
 							</th>
 							<td>
 								<?php echo $row['SZINEV']; ?>
@@ -225,7 +225,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['contact'];?>
+								<?php echo $lang['contact'];?>:
 							</th>
 							<td>
 								<div contenteditable="true" onBlur="updateValue(this,'KONTAKT', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['KONTAKT']; ?></div>
@@ -233,7 +233,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['phone_numb'];?>
+								<?php echo $lang['phone_numb'];?>:
 							</th>
 							<td>
 								<div contenteditable="true" onBlur="updateValue(this,'TEL', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['TEL']; ?></div>
@@ -241,7 +241,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								E-mail
+								E-mail:
 							</th>
 							<td>
 								<div contenteditable="true" onBlur="updateValue(this,'EMAIL', 'fordulok', 'FAZ','<?php echo $row['FAZ']; ?>')"><?php echo $row['EMAIL']; ?></div>
@@ -249,7 +249,7 @@ $resultlev = $db->query($sqllev);
 						</tr>
 						<tr>
 							<th>
-								<?php echo $lang['teams_mad'];?>
+								<?php echo $lang['teams_mad'];?>:
 							</th>
 							<td>
 								<?php if(isset($_POST['radio'])){

@@ -147,6 +147,7 @@ $lang['to_team'] = 'For team';
 $lang['is_here'] = 'Is here';
 $lang['teammem'] = 'Number of teams';
 $lang['coach_num'] = 'Number of coaches';
+$lang['check_res_code'] = 'Result access code';
 $lang['wait_to_reg'] = 'Wait for registration';
 
 #robot_game_lot_x.php

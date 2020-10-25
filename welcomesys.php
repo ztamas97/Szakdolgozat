@@ -38,7 +38,7 @@ if($user_permission_id!=2){
 		<div class="info">
 		<table>
 			<tr>
-				<th><?php echo $lang['perm']; ?> :</th>
+				<th><?php echo $lang['perm']; ?>:</th>
 				<td><?php echo $user_permission; ?></td>
 			</tr>
 			<tr>

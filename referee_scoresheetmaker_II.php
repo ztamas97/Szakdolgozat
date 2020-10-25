@@ -4,7 +4,7 @@ include('functions.php');
 require(languageselect($language));
    
 if($user_permission_id!=2){
-	header("location: logout.php");
+	header('location: logout.php');
 }  
 	
 $sqls = "SELECT * FROM `szezon`";
