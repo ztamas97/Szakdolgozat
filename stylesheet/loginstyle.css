@@ -43,6 +43,19 @@ img{
 	transition: all 0.3 ease;
 	cursor: pointer;
 }
+.result button {
+	font-family: Courier New, Courier, Arial, sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #0052cc;
+	width: 20%;
+	border: 5;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
 .form button:hover,.form button:active,.form button:focus {
 	opacity: 0.8;
 }

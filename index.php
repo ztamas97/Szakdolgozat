@@ -173,5 +173,10 @@ if(isset($_POST['user_name'])){
 				</form>
 			</div>
 		</div>
+		<div class="result">
+			<form action="coach_res/coach_res.php">
+				<button type = "submit"><?php echo $lang['ad_result']; ?></button>
+			</form>
+		</div>
 	</body>
 </html>
