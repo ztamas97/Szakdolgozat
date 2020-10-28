@@ -12,9 +12,13 @@ $results = $db->query($sqls);
 	
 $sqllev = "SELECT * FROM `szint`";
 $resultlev = $db->query($sqllev);
+$resultlev2 = $db->query($sqllev);
 	
 $sqlcat = "SELECT * FROM `zskategoriak`";
 $resultcat = $db->query($sqlcat);
+
+$sqlr = "SELECT * FROM `bfordulok`";
+$resultr = $db->query($sqlr);
 
 ?>
 <html>
@@ -88,6 +92,51 @@ $resultcat = $db->query($sqlcat);
 				</tr>
 			</table>
 		</form>
+		<form action="modify_res_madm_ii_ref.php" method="post">
+			<table>
+				<tr>
+					<td>
+						<p class="form">
+							<label for="lev"><?php echo $lang['level']; ?>:</label>
+							<select name="subject_lev" class="level2"required/> 
+							<option></option>
+							<?php while($subjectDataLev2 = $resultlev2->fetch_assoc()){ ?>
+								<option value="<?php echo $subjectDataLev2['SZIAZ'];?>"> <?php echo $subjectDataLev2['SZINEV'];?></option>
+							<?php }?> 
+							</select>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="form">
+						<label for="loc"><?php echo $lang['loc']; ?>:</label>
+							<select name="subject_loc" class="city2"required/> 
+							<option></option> 
+							</select>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="form">
+							<label for="rou"><?php echo $lang['round_ad']; ?>:</label>
+							<select name="subject_rou"required/> 
+								<option></option>
+								<?php while($subjectDataR = $resultr->fetch_assoc()){ ?>
+								<option value="<?php echo $subjectDataR['FOAZ'];?>"> <?php echo $subjectDataR['FONEV'];?></option>
+								<?php }?> 
+							</select>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button type = "submit" name="submit"><?php echo $lang['search']; ?></button>
+					</td>
+				</tr>
+			</table>
+		</form>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function()
@@ -106,6 +155,29 @@ $resultcat = $db->query($sqlcat);
 		success: function(cities)
 		{
 		$(".city").html(cities);
+		} 
+		});
+ 
+		});
+		});
+		</script>
+		<script type="text/javascript">
+		$(document).ready(function()
+		{
+		$(".level2").change(function()
+		{
+		var level_id=$(this).val();
+		var post_id = 'id='+ level_id;
+ 
+		$.ajax
+		({
+		type: "POST",
+		url: "ajax_teamtourn.php",
+		data: post_id,
+		cache: false,
+		success: function(cities)
+		{
+		$(".city2").html(cities);
 		} 
 		});
  
