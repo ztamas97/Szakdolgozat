@@ -32,7 +32,7 @@ $table_num=$row_sub['RGASZTALNUM'];
 <html>
    
    <head>
-      <title><?php echo $lang['ad_reg']; ?></title>
+      <title><?php echo $lang['ad_random']; ?></title>
 	  <link rel="stylesheet" type="text/css" href="stylesheet/form.css">
    </head>
    
