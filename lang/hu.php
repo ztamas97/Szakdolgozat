@@ -40,6 +40,11 @@ $lang['new_pass_err'] = 'A jelszó helyreállítás nem sikeres!';
 $lang['undefined_user'] = 'Ismeretlen felhasználónév!'; 
 $lang['res_send_attention'] = 'Figyelem! Ha tovább halad a küldési folyamatban nincs lehetőség eredmény módosításra!';
 
+#error_page.php
+$lang['error_title'] = 'Hiba!';
+$lang['something_wrong'] = 'Ez az oldal inkább Legózik!';
+$lang['msg_send_or_re'] = 'Próbálkozz újra, vagy küldj nekünk üzenetet!';
+
 #index.php
 $lang['index_title'] = 'Bejelentkezés';
 $lang['username'] = 'felhasználónév';
@@ -184,4 +189,7 @@ $lang['judge_team'] = 'zsűricsapat';
 $lang['option_to_src'] = 'Opció';
 $lang['all_team'] = 'Minden csapat';
 $lang['scored_teams'] = 'Pontozott csapatok';
+
+#coach_res*.php
+$lang['coach_res'] = 'Csapat eredmények';
 ?>

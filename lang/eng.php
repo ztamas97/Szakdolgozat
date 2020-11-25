@@ -40,6 +40,11 @@ $lang['new_pass_err'] = 'Password recovery failed!';
 $lang['undefined_user'] = 'Unknown username!'; 
 $lang['res_send_attention'] = 'Attention! If you continue in the sending process, there is no possibility to change the result!';
 
+#error_page.php
+$lang['error_title'] = 'Error!';
+$lang['something_wrong'] = 'This site is more like playing LEGO!';
+$lang['msg_send_or_re'] = 'Please try again or send us a message!';
+
 #index.php
 $lang['index_title'] = 'Login';
 $lang['username'] = 'username';
@@ -184,4 +189,7 @@ $lang['judge_team'] = 'judge team';
 $lang['option_to_src'] = 'Option';
 $lang['all_team'] = 'All team';
 $lang['scored_teams'] = 'Scored teams';
+
+#coach_res*.php
+$lang['coach_res'] = 'Team results';
 ?>
