@@ -176,6 +176,25 @@ select{
 	width: 150px;
 }
 
+.hide_model {
+  display: none;
+}
+    
+.show_gm:hover + .hide_model {
+  display: block;
+  color: red;
+}
+
+fieldset {
+  background-color: #eeeeee;
+  width: 35%
+}
+
+legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
 
 body {
 	background: #00ccff;

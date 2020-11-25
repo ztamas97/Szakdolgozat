@@ -1,0 +1,21 @@
+.table_msg {
+	width: 75%;
+	padding: 8% 0 0;
+	margin: auto;
+}
+
+img{
+	width: 500;
+	height: 333;
+}
+
+body {
+	background: #ff3300;
+	background: -webkit-linear-gradient(right, #ff3300, #b32400);
+	background: -moz-linear-gradient(right, #ff3300, #b32400);
+	background: -o-linear-gradient(right, #ff3300, #b32400);
+	background: linear-gradient(to left, #ff3300, #b32400);
+	font-family: Courier New, Courier, Arial, sans-serif;
+	width: 100%;
+	color: white;
+}
