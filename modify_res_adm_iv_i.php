@@ -17,14 +17,23 @@ if(mysqli_query($db, $sql)){
 	} 
 	else{
 	}
-} else{
+} 
+else{
 	$describe='Eredmény frissítése sikertelen: '.$team_name.' '.$res;
 	$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$login_session', CURRENT_TIMESTAMP, '$describe')";
 	if(mysqli_query($db, $sql_log)){
 	} 
 	else{
 	}
-    echo 'HIBA: A hozzáadás nem sikeres!';
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'modify_res_adm_iii.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with update the judge result in database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a zsűri eredmény adatbáziba történő frissítésénél!'; 
+	}
+	header('location: error_page.php');
 }
 $sql_sub="SELECT `zsuri-osszesito`.`PLUSSZP`,`zsuri-osszesito`.`OAZ`
 		FROM `zsuri-osszesito`
@@ -47,7 +56,16 @@ $sumofpoint = $row_sub2['SUMPOINT']+$bonus;
 $sql_sub3="UPDATE `zsuri-osszesito` SET `OSSZPONT` = '$sumofpoint' WHERE `zsuri-osszesito`.`OAZ` = '$sumid'";
 if(mysqli_query($db, $sql_sub3)){
 	header('location: modify_res_adm_iii.php#$res_id');
-} else{
-    echo 'HIBA: A hozzáadás nem sikeres!';
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'modify_res_adm_iii.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with update sum of points of team!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az összesített pontszám frissítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

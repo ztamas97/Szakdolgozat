@@ -115,13 +115,21 @@ $resultlev = $db->query($sqllev);
 						else{
 						}				
 					} else{
-						echo 'HIBA: A rögzítés nem sikeres! $sql.'. mysqli_error($db);
 						$describe='Csapat fordulóhoz hozzáadása sikertelen: '.$team_name;
 						$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
 						if(mysqli_query($db, $sql_log)){
 						} 
 						else{
 						}
+						$_SESSION['akt_lang'] = $language;
+						$_SESSION['back_to'] = 'team_tourn.php';
+						if($language == 'eng'){
+							$_SESSION['error_msg'] = 'Problem with recording the new team-tourn connection to database!'; 
+						}
+						else{
+							$_SESSION['error_msg'] = 'Probléma az új csapat-forduló kapcsolat adatbázisba történő rögzítésnél!'; 
+						}
+						header('location: error_page.php');
 					}
 				}
 				else{

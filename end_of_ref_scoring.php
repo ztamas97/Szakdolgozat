@@ -14,7 +14,21 @@ if(mysqli_query($db, $sql)){
 	elseif($user_permission_id==4){
 		header('location: modify_res_adm_ii_ref.php');
 	}
-} else{
-	
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	if($user_permission_id==1){
+		$_SESSION['back_to'] = 'ref_scoring_II.php';
+	}
+	elseif($user_permission_id==4){
+		$_SESSION['back_to'] = 'modify_res_adm_ii_ref.php';
+	}
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with closing the referee scoring!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a bírói pontozás véglegesítésénél!'; 
+	}
+	header('location: error_page.php');	
 }
 ?>

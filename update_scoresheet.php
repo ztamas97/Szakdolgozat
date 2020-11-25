@@ -24,6 +24,14 @@ if(mysqli_query($db, $sql)){
 	} 
 	else{
 	}
-    echo 'HIBA: A hozzáadás nem sikeres! $sql. ' . mysqli_error($db);
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'judge_scoresheet.php.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new judge result to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az új zsűri értékelés rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

@@ -27,31 +27,40 @@ $count_sub3 = mysqli_num_rows($result_sub3);
 
 if(($teamax/$_SESSION['RGASZTALNUM'])>$count_sub3){
 
-if($count==0){
+	if($count==0){
 
-$sql="INSERT INTO `biro-osszesito` (`BOAZ`, `CSID`, `FID`, `KID`, `OSSZPONT`, `ASZTAL`, `SSZAM`, `RIDO`) VALUES (NULL, '$team_id', '$user_tourn', '$round', '0', '$table_num', '$num', NULL);";
+		$sql="INSERT INTO `biro-osszesito` (`BOAZ`, `CSID`, `FID`, `KID`, `OSSZPONT`, `ASZTAL`, `SSZAM`, `RIDO`) VALUES (NULL, '$team_id', '$user_tourn', '$round', '0', '$table_num', '$num', NULL);";
 
-if(mysqli_query($db, $sql)){
-	$describe='Csapat rögzítés robot game!';
-	$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
-    if(mysqli_query($db, $sql_log)){
-	} 
-	else{
+		if(mysqli_query($db, $sql)){
+			$describe='Csapat rögzítés robot game!';
+			$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
+			if(mysqli_query($db, $sql_log)){
+			} 
+			else{
+			}
+			header('location: robot_game_lot_iii.php');
+		} 
+		else{
+			$describe='Csapat rögzítés robot game sikertelen!';
+			$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
+			if(mysqli_query($db, $sql_log)){
+			} 
+			else{
+			}
+			$_SESSION['akt_lang'] = $language;
+			$_SESSION['back_to'] = 'robot_game_lot_iii.php';
+			if($language == 'eng'){
+				$_SESSION['error_msg'] = 'Problem with robot game round generation!'; 
+			}
+			else{
+				$_SESSION['error_msg'] = 'Probléma a robotmenetkörök sorsolásánál!'; 
+			}
+			header('location: error_page.php');
+		}
 	}
-	header('location: robot_game_lot_iii.php');
-} else{
-	$describe='Csapat rögzítés robot game sikertelen!';
-	$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
-	if(mysqli_query($db, $sql_log)){
-	} 
 	else{
+		header('location: robot_game_lot_iii.php');
 	}
-    echo 'HIBA: A hozzáadás nem sikeres! $sql. ' . mysqli_error($db);
-}
-}
-else{
-	header('location: robot_game_lot_iii.php');
-}
 }
 else{
 	header('location: robot_game_lot_iii.php');

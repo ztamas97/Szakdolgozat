@@ -127,28 +127,60 @@ $table_num=$row_sub['RGASZTALNUM'];
 						echo 'SIKERES GENERÁLÁS!';
 					}
 					else{
-						echo 'HIBA!';
+						$_SESSION['akt_lang'] = $language;
+						$_SESSION['back_to'] = 'robot_game_lot_ii.php';
+						if($language == 'eng'){
+							$_SESSION['error_msg'] = 'Problem with automatic robot game round generation (F)!'; 
+						}
+						else{
+							$_SESSION['error_msg'] = 'Probléma az sorsolás generálásnál (F)!'; 
+						}
+						header('location: error_page.php');
 					}
 		$sql_sub_ii="INSERT INTO `biro-osszesito` (`BOAZ`, `CSID`, `FID`, `KID`, `OSSZPONT`, `ASZTAL`, `SSZAM`, `RIDO`) VALUES (NULL, '$team2', '$user_tourn', '$f1', '0', '2', '1', NULL)";
 					if(mysqli_query($db, $sql_sub_ii)){
 						echo 'SIKERES GENERÁLÁS!';
 					}
 					else{
-						echo 'HIBA!';
+						$_SESSION['akt_lang'] = $language;
+						$_SESSION['back_to'] = 'robot_game_lot_ii.php';
+						if($language == 'eng'){
+							$_SESSION['error_msg'] = 'Problem with automatic robot game round generation (F)!'; 
+						}
+						else{
+							$_SESSION['error_msg'] = 'Probléma az sorsolás generálásnál (F)!'; 
+						}
+						header('location: error_page.php');
 					}
 		$sql_sub_iii="INSERT INTO `biro-osszesito` (`BOAZ`, `CSID`, `FID`, `KID`, `OSSZPONT`, `ASZTAL`, `SSZAM`, `RIDO`) VALUES (NULL, '$team1', '$user_tourn', '$f2', '0', '2', '1', NULL)";
 					if(mysqli_query($db, $sql_sub_iii)){
 						echo 'SIKERES GENERÁLÁS!';
 					}
 					else{
-						echo 'HIBA!';
+						$_SESSION['akt_lang'] = $language;
+						$_SESSION['back_to'] = 'robot_game_lot_ii.php';
+						if($language == 'eng'){
+							$_SESSION['error_msg'] = 'Problem with automatic robot game round generation (F)!'; 
+						}
+						else{
+							$_SESSION['error_msg'] = 'Probléma az sorsolás generálásnál (F)!'; 
+						}
+						header('location: error_page.php');
 					}
 		$sql_sub_iv="INSERT INTO `biro-osszesito` (`BOAZ`, `CSID`, `FID`, `KID`, `OSSZPONT`, `ASZTAL`, `SSZAM`, `RIDO`) VALUES (NULL, '$team2', '$user_tourn', '$f2', '0', '1', '1', NULL)";
 					if(mysqli_query($db, $sql_sub_iv)){
 						echo 'SIKERES GENERÁLÁS!';
 					}
 					else{
-						echo 'HIBA!';
+						$_SESSION['akt_lang'] = $language;
+						$_SESSION['back_to'] = 'robot_game_lot_ii.php';
+						if($language == 'eng'){
+							$_SESSION['error_msg'] = 'Problem with automatic robot game round generation (F)!'; 
+						}
+						else{
+							$_SESSION['error_msg'] = 'Probléma az sorsolás generálásnál (F)!'; 
+						}
+						header('location: error_page.php');
 					}
 	}
 	?>

@@ -15,7 +15,16 @@ $sql = "INSERT INTO `helyszinek` (`HAZ`, `VAROS`, `IRSZ`, `UTCA`, `HSZ`) VALUES 
 
 if(mysqli_query($db, $sql)){
     header('location: addlocation.php');
-} else{
-    echo 'HIBA: A hozzáadás nem sikeres! $sql. ' . mysqli_error($db);
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'addlocation.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new location to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az új helyszín adatbázisba történő rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

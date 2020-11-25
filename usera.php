@@ -18,8 +18,17 @@ else{
 
 if(mysqli_query($db, $sql)){
 	header('location: checkuser.php');
-} else{
-    echo 'HIBA: A hozzáadás nem sikeres! $sql. ' . mysqli_error($db);
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'checkuser.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with update status of user!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a felhasználó státuszának frissítésénél!'; 
+	}
+	header('location: error_page.php');
 }
 
 ?>

@@ -7,8 +7,12 @@ $bp=mysqli_real_escape_string($db, $_GET['backpoint']);
 $team_id=$_SESSION['team_id'];
 $team_name=$_SESSION['team_name'];
 $round=$_SESSION['rg_round'];
-
+echo $user_tourn;
 $sql="UPDATE `biro-pontok` SET `SZORZO` = '$res' WHERE `biro-pontok`.`BOAZ` = '$boaz'";
+
+if($user_permission_id==3){
+	$user_tourn=$_SESSION['round'];
+}
 
 if(mysqli_query($db, $sql)){
 	$describe='Eredmény frissítve: '.$team_name.' '.$user_tourn.' '.$res;
@@ -17,7 +21,6 @@ if(mysqli_query($db, $sql)){
 	} 
 	else{
 	}
-	#header("location: ref_scoring_III.php#$bp");
 } else{
 	$describe='Eredmény frissítése sikertelen: '.$teamname.' '.$user_tourn.' '.$res;
 	$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
@@ -75,7 +78,27 @@ if(mysqli_query($db, $sql_sub6)){
 	elseif($user_permission_id==4){
 		header('location: modify_res_adm_iii_ref.php#$bp');
 	}
+	elseif($user_permission_id==3){
+		header('location: modify_res_madm_iii_ref.php#$bp');
+	}
 } else{
-	
+	$_SESSION['akt_lang'] = $language;
+	if($user_permission_id==1){
+		$_SESSION['back_to'] = 'ref_scoring_III.php';
+	}
+	elseif($user_permission_id==4){
+		$_SESSION['back_to'] = 'modify_res_adm_iii_ref.php';
+	}
+	elseif($user_permission_id==3){
+		$_SESSION['back_to'] = 'modify_res_madm_iii_ref.php';
+	}
+
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with update the selected result!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az eredmény frissítésénél!'; 
+	}
+	header('location: error_page.php');	
 }
 ?>

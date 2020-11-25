@@ -135,7 +135,15 @@ $table_num=$row_sub['RGASZTALNUM'];
 						echo 'SIKERES GENERÁLÁS!';
 					}
 					else{
-						echo 'HIBA!';
+						$_SESSION['akt_lang'] = $language;
+						$_SESSION['back_to'] = 'robot_game_lot_ii.php';
+						if($language == 'eng'){
+							$_SESSION['error_msg'] = 'Problem with automatic robot game round generation (QF)!'; 
+						}
+						else{
+							$_SESSION['error_msg'] = 'Probléma az sorsolás generálásnál (QF)!'; 
+						}
+						header('location: error_page.php');
 					}
 					$num++;
 				}

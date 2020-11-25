@@ -58,7 +58,15 @@ if($table_num==0){
 				header('location: robot_game_lot_ii.php');
 			}
 			else{
-				echo 'HIBA!';
+				$_SESSION['akt_lang'] = $language;
+				$_SESSION['back_to'] = 'welcomeadm.php';
+				if($language == 'eng'){
+					$_SESSION['error_msg'] = 'Problem with set the number of competition table!'; 
+				}
+				else{
+					$_SESSION['error_msg'] = 'Probléma a versenyasztalok számának beállításánál!'; 
+				}
+				header('location: error_page.php');
 			}
 		}
 		?>

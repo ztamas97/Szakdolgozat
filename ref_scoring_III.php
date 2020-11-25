@@ -77,9 +77,10 @@ $schedule='files/Schedule_'.$user_location.'_'.$user_level.'_'.$user_tourn.'.pdf
 			$obj_id=$row['FELAZ'];
 		?>
 			<tr>
-				<td class="id">
+				<td class="id" width=10%>
 					<?php echo $row['SUBAZ'];?><br>
-					<img src="<?php echo "images/".$row['SUBAZ'].'.png';?>" alt="gaz">
+					<div class="show_gm"><img src="images/image.svg" width=40% alt="Not found!"></div>
+					<div class="hide_model"><img src="<?php echo "images/".$row['SUBAZ'].'.png';?>" alt="Game modell picture not found!"></div>
 				</td>
 				<td>
 					<div class="name"><?php echo $row['NEV'].' ';?></div>

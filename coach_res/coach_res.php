@@ -1,27 +1,55 @@
 <?php
 include('../config.php');
 session_start();
+
+if($_GET['la']){
+	$_SESSION['lang'] = $_GET['la'];
+	header('Location:'.$_SERVER['PHP_SELF']);
+	exit();
+}
+
+switch($_SESSION['lang']){
+ 	case 'hu':
+		require('../lang/hu.php');		
+	break;
+	case 'eng':
+		require('../lang/eng.php');		
+	break;
+	default: 
+		require('../lang/hu.php');		
+}
 ?>
 <html>
 	<head>
-		<title>Csapat eredmények</title>
+		<title><?php echo $lang['coach_res']; ?></title>
+		<link rel="stylesheet" type="text/css" href="../stylesheet/loginstyle.css">
 	</head>
 	
 	<body>
-		<form action="" method="post">
-			 <fieldset>
-				<legend>Eredmény lekérdezés:</legend>
-				<label for="rid">Eredmény azonosító:</label>
-				<input type="text" id="rid" name="rid"><br>
-				<button type = "submit" name="submit">Keresés</button>
-			 </fieldset>
-		</form>
+		<div class="login-page">
+			<div class="form">
+				<h2><?php echo $lang['coach_res']; ?></h2>
+				<form class="login-form" action = "" method = "post">
+					<input type="password" placeholder=<?php echo $lang['password']; ?> name="password"/>
+					<button type = "submit"><?php echo $lang['login']; ?></button>
+					<table class="langselect">
+						<tr>
+							<td>
+								<a href="coach_res.php?la=hu"><img src="../images/flags/hu.png" alt="<?=$lang['lang-hu'];?>" title="<?=$lang['lang-hu'];?>" /></a>
+							</td>
+							<td>
+								<a href="coach_res.php?la=eng"><img src="../images/flags/eng.png" alt="<?=$lang['lang-eng'];?>" title="<?=$lang['lang-eng'];?>" /></a>
+							</td>
+						</tr>
+					</table>
+				</form>			</div>
+		</div>
 	</body>
 </html>
 <?php
-if(isset($_POST['submit']))
+if(isset($_POST['password']))
 {
-	$code = $_POST['rid'];
+	$code = $_POST['password'];
 	$token = strtok($code, '-');
 	$a_of_token = array();
  

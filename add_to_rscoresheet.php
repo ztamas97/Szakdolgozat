@@ -27,7 +27,16 @@ $sql = "INSERT INTO `biro-feladatok` (`FELAZ`, `SUBAZ`, `NEV`, `FMEGJ`, `MAXPONT
 
 if(mysqli_query($db, $sql)){
     header('location: referee_scoresheetmaker_II.php');
-} else{
-    echo 'HIBA: A hozzáadás nem sikeres! $sql.'. mysqli_error($db);
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'referee_scoresheetmaker_II.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new referee task to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az új bírói feladat adatbázisba történő rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

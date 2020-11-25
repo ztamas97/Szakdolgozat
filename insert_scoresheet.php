@@ -16,13 +16,22 @@ if(mysqli_query($db, $sql)){
 	else{
 	}
 	header('location: judge_scoresheet.php#$res_id');
-} else{
+} 
+else{
 	$describe='Eredmény rögzítése sikertelen: '.$teamname.' '.$user_tourn.' '.$res.' '.$user_category;
 	$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
 	if(mysqli_query($db, $sql_log)){
 	} 
 	else{
 	}
-    echo 'HIBA: A hozzáadás nem sikeres! $sql. ' . mysqli_error($db);
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'judge_scoresheet.php.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new judge result to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az új zsűri értékelés rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

@@ -11,7 +11,16 @@ $sql = "DELETE FROM `zsuri-szempontok` WHERE `zsuri-szempontok`.`SZEMAZ` = '$cid
 
 if(mysqli_query($db, $sql)){
     header('location: judge_scoresheetmaker.php');
-} else{
-    echo 'HIBA: A törlés nem sikeres! $sql.'. mysqli_error($db);
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'judge_scoresheetmaker.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with delete one of the judge task from database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a zsűri szempont adatbázisból történő törlésénél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

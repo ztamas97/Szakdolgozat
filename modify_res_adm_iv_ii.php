@@ -18,7 +18,17 @@ $sql="UPDATE `zsuri-osszesito` SET `PLUSSZP` = '$bonus' WHERE `zsuri-osszesito`.
 
 if(mysqli_query($db, $sql)){
 
-} else{
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'modify_res_adm_iii.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with update bonus points of team!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a bónuszpontok frissítésnél!'; 
+	}
+	header('location: error_page.php');
 	
 }
 $sql_sub2="SELECT SUM(`zsuri-pontok`.`ERTEK`) AS SUMPOINT
@@ -34,7 +44,16 @@ $sumofpoint = $row_sub2['SUMPOINT']+$bonus;
 $sql2="UPDATE `zsuri-osszesito` SET `OSSZPONT` = '$sumofpoint' WHERE `zsuri-osszesito`.`OAZ` = '$sumid'";
 if(mysqli_query($db, $sql2)){
 	header('location: modify_res_adm_iii.php');
-} else{
-	
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'modify_res_adm_iii.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with update sum of points of team!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az összesített pontszám frissítésnél!'; 
+	}
+	header('location: error_page.php');	
 }
 ?>

@@ -105,6 +105,15 @@ if(mysqli_query($db, $sql)){
 	} 
 	else{
 	}
-    echo 'HIBA: A rögzítés nem sikeres! $sql.'. mysqli_error($db);
+	
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'addtourn.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new tourn to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az új forduló adatbázisba történő rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

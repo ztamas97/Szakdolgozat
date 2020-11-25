@@ -23,6 +23,7 @@ $teaminfo = $result2->fetch_assoc();
 <html>
 	<head>
 		<title>Csapat eredmények</title>
+		<link rel="stylesheet" type="text/css" href="../stylesheet/scoresheet.css">
 	</head>
 	
 	<body>
@@ -152,7 +153,7 @@ $teaminfo = $result2->fetch_assoc();
 				<legend>Zsűri eredmény lekérdezés:</legend>
 				<label for="subject_cat">Kategória:</label>
 				<select name="subject_cat"required/> 
-					<option></option>
+					<o ption></option>
 					<?php while($subjectDataC = $result7->fetch_assoc()){ ?>
 						<option value="<?php echo $subjectDataC['ZSAZ'];?>"> <?php echo $subjectDataC['ZSKATNEV'];?></option>
 					<?php }?> 

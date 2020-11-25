@@ -60,7 +60,15 @@ else{
 	} 
 	else{
 	}
-    echo 'HIBA: A hozzáadás nem sikeres! $sql. ' . mysqli_error($db);
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'adduser.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new user to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a felhasználó adatbázisba történő rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 //ideiglenesen, ellenőrzés miatt
 $pwd = fopen('passwords.txt', 'a'); 

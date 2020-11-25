@@ -97,14 +97,23 @@ if(mysqli_query($db, $sql)){
 	else{
 	}
 	header('location: welcomeadm.php');
-} else{
+} 
+else{
 	$describe='Forduló lezárása sikertelen!';
 	$sql_log="INSERT INTO `naplo` (`Azonosito`, `Felhasználó`, `Időpont`, `Esemény`) VALUES (NULL, '$user_name', CURRENT_TIMESTAMP, '$describe')";
 	if(mysqli_query($db, $sql_log)){
 	} 
 	else{
 	}
-    echo '$sql. ' . mysqli_error($db);
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'welcomeadm.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with close tourn!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a forduló lezárásával!'; 
+	}
+	header('location: error_page.php');
 }
 
 ?>

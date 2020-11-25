@@ -61,8 +61,17 @@ if(mysqli_query($db, $sql)){
 	}
 	emailsender($email,'FLL user','FLL Scoring System',$main);
     header('location: addteaminfo.php');
-} else{
-    echo 'HIBA: A rögzítés nem sikeres! $sql. ' . mysqli_error($db);
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'addteaminfo.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with update team informations!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a csapatadatok frissítésénél!'; 
+	}
+	header('location: error_page.php');
 }
 
 ?>

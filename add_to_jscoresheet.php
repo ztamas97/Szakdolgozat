@@ -27,7 +27,16 @@ $sql = "INSERT INTO `zsuri-szempontok` (`SZEMAZ`, `SZEMNEV`, `LEIRAS`, `KATEGORI
 
 if(mysqli_query($db, $sql)){
     header('location: judge_scoresheetmaker.php');
-} else{
-    echo 'HIBA: A hozzáadás nem sikeres! $sql.'. mysqli_error($db);
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'judge_scoresheetmaker.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with add a new judge task to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma a zsűri szempont rögzítésénél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

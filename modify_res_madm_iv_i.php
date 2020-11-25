@@ -48,7 +48,16 @@ $sumofpoint = $row_sub2['SUMPOINT']+$bonus;
 $sql_sub3="UPDATE `zsuri-osszesito` SET `OSSZPONT` = '$sumofpoint' WHERE `zsuri-osszesito`.`OAZ` = '$sumid'";
 if(mysqli_query($db, $sql_sub3)){
 	header('location: modify_res_madm_iii.php#$res_id');
-} else{
-    echo 'HIBA: A hozzáadás nem sikeres!';
+} 
+else{
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'modify_res_madm_iii.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new location to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az új helyszín adatbázisba történő rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

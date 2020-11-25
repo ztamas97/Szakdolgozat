@@ -25,7 +25,7 @@ function emailsender($to,$to_name,$subject,$main)
 	$mail->Port       = 587;
 	$mail->Host       = "smtp.gmail.com";
 	$mail->Username   = "fllscoringsystem@gmail.com";
-	$mail->Password   = "";
+	$mail->Password   = "Domper0818.";
 
 	$mail->IsHTML(true);
 	$mail->AddAddress($to,$to_name);
@@ -63,5 +63,13 @@ function result_div($team_res, $cat_max, $div)
 	{
 	return round(($team_res/$cat_max)*$div);
 	}
+}
+
+function error_handling($lang, $backpoint, $error_msg)
+{
+	$_SESSION['akt_lang'] = $lang;
+	$_SESSION['back_to'] = $backpoint;
+	$_SESSION['error_msg'] = $error_msg;
+	header('location: error_page.php');
 }
 ?>

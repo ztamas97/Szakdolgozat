@@ -91,6 +91,14 @@ if(mysqli_query($db, $sql)){
 	emailsender($email,'new FLL user','FLL Scoring System',$main);
     header('location: addteam.php');
 } else{
-    echo 'HIBA: A rögzítés nem sikeres! $sql. ' . mysqli_error($db);
+	$_SESSION['akt_lang'] = $language;
+	$_SESSION['back_to'] = 'addteam.php';
+	if($language == 'eng'){
+		$_SESSION['error_msg'] = 'Problem with recording the new location to database!'; 
+	}
+	else{
+		$_SESSION['error_msg'] = 'Probléma az új helyszín adatbázisba történő rögzítésnél!'; 
+	}
+	header('location: error_page.php');
 }
 ?>

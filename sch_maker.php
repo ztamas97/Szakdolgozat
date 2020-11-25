@@ -1,4 +1,4 @@
-<?php
+ <?php
 include('session.php');
 include('functions.php');
 require(languageselect($language));
